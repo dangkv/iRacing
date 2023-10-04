@@ -1,0 +1,36 @@
+main:
+    steps:
+        - init:
+            assign:
+                - results: {}
+                - hasNewValue: True
+        - evaluate:
+            switch:
+                - condition: ${hasNewValue == True}
+                  next: extractIracingAPI
+            next: end
+
+        - extractIracingAPI:
+            parallel:
+                shared: [results]
+                branches:
+                    - api_one:
+                        steps:
+                            - extract_api_one:
+                                assign: 
+                                    - results: 1
+                    - api_two:
+                        steps:
+                            - extract_api_two:
+                                assign: 
+                                    - results: 2
+                    - api_three:
+                        steps:
+                            - extract_api_three:
+                                assign: 
+                                    - results: 3
+
+        - printResults:
+            return: ${results}
+
+
