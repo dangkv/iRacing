@@ -78,12 +78,3 @@ class Client:
 
         record = self._wrap_payload(full_session, "lap_data", endpoints.URL_LAP_DATA, parameters)
         return record
-
-
-if __name__ == "__main__":
-    username = ""
-    password = ""
-
-    ir = Client(username, password)
-    print(ir.lap_data(subsession_id=64059658))
-
