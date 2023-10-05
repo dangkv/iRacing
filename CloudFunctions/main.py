@@ -1,7 +1,7 @@
 from iRacingSDK.client import Client
 
 @functions_framework.http
-def el_session_data(request):
+def main(request):
     username = "vo.dangkh@gmail.com"
     password = "22v33zZ4gduRY"
 
